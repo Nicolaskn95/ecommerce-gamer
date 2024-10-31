@@ -5,23 +5,23 @@ export default class InstallmentCalc {
   implement(
     value: number,
     installmentQtd: number = MAX_AMOUNT_INSTALLMENTS,
-    interestRate: number = INTEREST_RATE_MONTHLY
+    interestRate: number = INTEREST_RATE_MONTHLY,
   ): Installment {
     if (installmentQtd < 2 || installmentQtd > MAX_AMOUNT_INSTALLMENTS) {
       throw new Error(
-        `Quantidade de parcelas deve ser entre 2 e ${MAX_AMOUNT_INSTALLMENTS}`
+        `Quantidade de parcelas deve ser entre 2 e ${MAX_AMOUNT_INSTALLMENTS}`,
       );
     }
 
     const interesWithFees = this.compoundInteresFeed(
       value,
       interestRate,
-      installmentQtd
+      installmentQtd,
     );
 
     return {
       installmentValue: this.withTwoDecimalPlaces(
-        interesWithFees / MAX_AMOUNT_INSTALLMENTS
+        interesWithFees / MAX_AMOUNT_INSTALLMENTS,
       ),
       totalValue: this.withTwoDecimalPlaces(interesWithFees),
       installmentQtd,
@@ -32,7 +32,7 @@ export default class InstallmentCalc {
   private compoundInteresFeed(
     totalValue: number,
     monthTax: number,
-    intallmentQtd: number
+    intallmentQtd: number,
   ): number {
     return totalValue * Math.pow(1 + monthTax, intallmentQtd);
   }
