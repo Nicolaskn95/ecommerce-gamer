@@ -1,5 +1,5 @@
 import Tag from "../shared/Tag";
-import type { Product } from "@/core";
+import type { Product } from "@gstore/core";
 import { CiShoppingTag } from "react-icons/ci";
 
 export interface EspecificationProps {

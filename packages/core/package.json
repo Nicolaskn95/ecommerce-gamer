@@ -10,7 +10,7 @@
         "test": "jest --watchAll --collectCoverage"
     },
     "keywords": [],
-    "author": "Leonardo Moura Leitão",
+    "author": "Nicolas Nagano",
     "license": "ISC",
     "devDependencies": {
         "tsup": "^8.2.4"

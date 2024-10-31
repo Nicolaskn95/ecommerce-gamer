@@ -1,4 +1,4 @@
-import { mockProducts } from "@/core";
+import { mockProducts } from "@gstore/core";
 import ProductItem from "./ProductItem";
 import DontFoundProduct from "./DontFoundProduct";
 

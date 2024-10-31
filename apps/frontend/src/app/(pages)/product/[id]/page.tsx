@@ -2,7 +2,7 @@ import DontFoundProduct from "@/components/product/DontFoundProduct";
 import ProductInformations from "@/components/product/ProductInformations";
 import ProductTitle from "@/components/product/ProductTitle";
 import PurchaseBanner from "@/components/product/PurchaseBanner";
-import { mockProducts } from "@/core";
+import { mockProducts } from "@gstore/core";
 
 function ProductPage(props: any) {
   const id = +props.params.id;

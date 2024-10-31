@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import type { Product } from "@/core";
+import type { Product } from "@gstore/core";
 import Especification from "./Especficiation";
 
 export interface ProductInformationsProps {

@@ -1,7 +1,7 @@
 import ProductItem from "@/components/product/ProductItem";
 import ProductList from "@/components/product/ProductList";
 import Page from "@/components/template/Page";
-import { mockProducts } from "@/core";
+import { mockProducts } from "@gstore/core";
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { Moeda, Product } from "@/core";
+import { Moeda, Product } from "@gstore/core";
 import Image from "next/image";
 import Link from "next/link";
 import { LiaCartPlusSolid } from "react-icons/lia";
