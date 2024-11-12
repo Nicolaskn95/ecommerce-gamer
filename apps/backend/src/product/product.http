@@ -1,0 +1,35 @@
+GET http://localhost:3005/products
+
+###
+DELETE http://localhost:3005/products/30
+
+###
+GET http://localhost:3005/products/30
+
+###
+POST http://localhost:3005/products
+Content-Type: application/json
+
+{
+    "name": "Galaxy S24 Ultra",
+    "description":"Samsung Galaxy Ultra S24 é um smartphone Topperson.",
+    "brand": "Samsung",
+    "model": "AN515-54-58CL",
+    "image":"https://samsungbrshop.vtexassets.com/arquivos/ids/228347/1---_S767B~1.png",
+    "grade": 4.5,
+    "videoReview":"https://www.youtube.com/embed/8NQFr9De3lU?si=s_lN2KTQresD-36Y",
+    "tags": ["Smartphone","Celular"],
+    "basePrice": 6499.99,
+    "promotionPrice": 5999.99,
+    "lowPrice": 4850.9,
+    "highPrice": 9800.8,
+    "averagePrice": 6503.7,
+    "especification": {
+      "Tela":"6.2 polegadas",
+      "Memória": "16GB DDR4",
+      "Armazenamento": "128 GB",
+      "Camera": "12 MP",
+      "Bateria": "4000 mAh"
+    }
+}
+
