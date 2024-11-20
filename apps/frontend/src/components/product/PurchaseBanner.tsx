@@ -1,7 +1,7 @@
 "use client";
 import { IconCreditCard, IconShoppingCart } from "@tabler/icons-react";
 import { Moeda, Product } from "@gstore/core";
-// import useCarrinho from '@/data/hooks/useCarrinho'
+import useShoppingCart from "@/data/hooks/useShoppingCart";
 import { useRouter } from "next/navigation";
 import useInstallment from "@/data/hooks/useInstallment";
 
@@ -12,7 +12,7 @@ export interface PurchaseBannerProps {
 export default function PurchaseBanner(props: PurchaseBannerProps) {
   const router = useRouter();
   const { product } = props;
-  // const { adicionarItem } = useCarrinho()
+  const { addItem } = useShoppingCart();
 
   const parcelamento = useInstallment(product.promotionPrice, 12);
 
@@ -20,11 +20,13 @@ export default function PurchaseBanner(props: PurchaseBannerProps) {
     <div className="flex">
       <div className="flex flex-col border-r border-zinc-500 pr-5">
         <div className="line-through text-zinc-400">
-          de R$ {product?.basePrice}
+          de {Moeda.format(product?.basePrice)}
         </div>
         <div className="text-2xl font-semibold">
           <span className="text-base text-zinc-300">por</span>{" "}
-          <span className="text-emerald-500">R$ {product?.promotionPrice}</span>{" "}
+          <span className="text-emerald-500">
+            {Moeda.format(product?.promotionPrice)}
+          </span>{" "}
           <span className="text-base text-zinc-300">à vista</span>
         </div>
       </div>
@@ -37,8 +39,7 @@ export default function PurchaseBanner(props: PurchaseBannerProps) {
       <div className="flex gap-2 items-center">
         <button
           className="flex-1 button bg-pink-600"
-          onClick={() => {}}
-          // onClick={() => adicionarItem(product)}
+          onClick={() => addItem(product)}
         >
           <IconShoppingCart size={20} />
           <span>Adicionar</span>
@@ -46,8 +47,8 @@ export default function PurchaseBanner(props: PurchaseBannerProps) {
         <button
           className="flex-1 button bg-violet-700"
           onClick={() => {
-            // adicionarItem(product)
-            router.push("/checkout/pagamento");
+            addItem(product);
+            router.push("/checkout/payment");
           }}
         >
           <IconCreditCard size={20} />
