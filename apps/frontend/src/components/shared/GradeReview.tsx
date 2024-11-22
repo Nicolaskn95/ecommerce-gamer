@@ -1,3 +1,4 @@
+"use client";
 import { TbStar, TbStarFilled, TbStarHalfFilled } from "react-icons/tb";
 
 interface GradeReviewProps {
@@ -11,13 +12,16 @@ function GradeReview({ grade, size }: GradeReviewProps) {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       if (grade >= i) {
-        stars.push(<TbStarFilled size={size ?? 12} />);
+        stars.push(
+          <div>
+            <TbStarFilled size={size ?? 12} />
+          </div>
+        );
       } else if (grade >= i - 0.5) {
         stars.push(<TbStarHalfFilled size={size ?? 12} />);
       } else {
         stars.push(<TbStar size={size ?? 12} />);
       }
-      console.log(stars.length);
     }
     return stars;
   };

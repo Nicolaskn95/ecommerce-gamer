@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import GradeReview from "../shared/GradeReview";
+import useInstallment from "@/data/hooks/useInstallment";
+import useShoppingCart from "@/data/hooks/useShoppingCart";
 
 export interface ProductItemProps {
   product: Product;
@@ -11,6 +13,10 @@ export interface ProductItemProps {
 
 function ProductItem(props: ProductItemProps) {
   const { product } = props;
+  const { addItem } = useShoppingCart();
+  const { installmentQtd, installmentValue } = useInstallment(
+    product.promotionPrice
+  );
   return (
     <Link
       href={`/product/${product.id}`}
@@ -40,13 +46,16 @@ function ProductItem(props: ProductItemProps) {
           <span className="text-xl font-semibold text-emerald-400">
             Por {Moeda.format(product.promotionPrice)}
           </span>
-          {/* <span className="text-zinc-400 text-xs">
-              Até {}
-          </span> */}
+          <span className="text-zinc-400 text-xs">
+            até {installmentQtd} x de {Moeda.format(installmentValue)}
+          </span>
         </div>
         <button
           className="flex justify-center items-center gap-2 h-8 bg-violet-700 hover:border-2 border-emerald-500"
-          onClick={(e) => console.log(e)}
+          onClick={(e) => {
+            e.preventDefault();
+            addItem(product);
+          }}
         >
           <LiaCartPlusSolid size={20} />
           <span>Adicionar</span>

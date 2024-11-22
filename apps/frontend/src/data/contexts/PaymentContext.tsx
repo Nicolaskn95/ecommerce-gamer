@@ -13,7 +13,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import useAPI from "../hooks/useAPI";
 import useShoppingCart from "../hooks/useShoppingCart";
 
-export interface ContextoPagamentoProps {
+export interface PaymentContextProps {
   paymentMethod: PaymentMethod;
   delivered: Partial<OrderDelivered>;
   modifyPaymentMethod: (paymentMethod: PaymentMethod) => void;
@@ -21,7 +21,7 @@ export interface ContextoPagamentoProps {
   checkout: () => void;
 }
 
-const ContextoPagamento = createContext<ContextoPagamentoProps>({} as any);
+const PaymentContext = createContext<PaymentContextProps>({} as any);
 
 export function PaymentProvider(props: any) {
   const { httpPost } = useAPI();
@@ -74,7 +74,7 @@ export function PaymentProvider(props: any) {
   }, [getItem]);
 
   return (
-    <ContextoPagamento.Provider
+    <PaymentContext.Provider
       value={{
         delivered,
         paymentMethod,
@@ -84,8 +84,8 @@ export function PaymentProvider(props: any) {
       }}
     >
       {props.children}
-    </ContextoPagamento.Provider>
+    </PaymentContext.Provider>
   );
 }
 
-export default ContextoPagamento;
+export default PaymentContext;

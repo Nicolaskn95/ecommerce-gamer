@@ -15,9 +15,9 @@ export interface ShoppingCartContextProps {
   fullTotalValue: number;
   totalValue: number;
   installment: Installment;
-  addItem: (produto: Product) => void;
-  removeItem: (produto: Product) => void;
-  removeProduct: (produto: Product) => void;
+  addItem: (product: Product) => void;
+  removeItem: (product: Product) => void;
+  removeProduct: (product: Product) => void;
   cleanCart: () => void;
 }
 

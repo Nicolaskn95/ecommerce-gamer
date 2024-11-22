@@ -4,7 +4,7 @@ import type CartItem from "./CartItem";
 export default class ShoppingCart {
   constructor(readonly items: CartItem[] = []) {}
   addItem(product: Product): ShoppingCart {
-    const item = this.addItem(product);
+    const item = this.itemsPerProduct(product);
     if (item) {
       return new ShoppingCart(this.changeItemQuantity(this.items, product, 1));
     } else {
@@ -15,7 +15,7 @@ export default class ShoppingCart {
     const item = this.itemsPerProduct(product);
     if (!item) return this;
 
-    return new ShoppingCart(this.changeItemQuantity(this.items, product, 1));
+    return new ShoppingCart(this.changeItemQuantity(this.items, product, -1));
   }
   removeProduct(product: Product) {
     const item = this.itemsPerProduct(product);

@@ -1,10 +1,11 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import CartIcon from "../shared/CartIcon";
 import useShoppingCart from "@/data/hooks/useShoppingCart";
 
 function Header() {
-  const { qttItems } = useShoppingCart();
+  const { qttItems, removeItem } = useShoppingCart();
   return (
     <div
       className="flex-flex-col mb-6"
@@ -17,7 +18,7 @@ function Header() {
         <Link href={"/"}>
           <Image alt="logo" src={"/gamerLogo.png"} width={350} height={350} />
         </Link>
-        <Link href={"/checkout/cart"} className="mr-5">
+        <Link href={"/checkout/shopping-cart"} className="mr-5">
           <CartIcon itensQtd={qttItems} />
         </Link>
       </div>
