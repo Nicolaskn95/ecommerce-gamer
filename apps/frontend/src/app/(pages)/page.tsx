@@ -1,12 +1,12 @@
-import ProductItem from "@/components/product/ProductItem";
+"use client";
+import ProductFilter from "@/components/product/ProductFilter";
 import ProductList from "@/components/product/ProductList";
-import Page from "@/components/template/Page";
-import { mockProducts } from "@gstore/core";
 
 export default function Home() {
   return (
     <>
       <div className="flex-1 flex flex-col container gap-5">
+        <ProductFilter />
         <ProductList />
       </div>
     </>

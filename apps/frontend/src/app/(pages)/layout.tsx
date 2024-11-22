@@ -1,3 +1,4 @@
+"use client";
 import Page from "@/components/template/Page";
 import { PaymentProvider } from "@/data/contexts/PaymentContext";
 import { ProductProvider } from "@/data/contexts/ProductContext";
